@@ -93,19 +93,20 @@ window.addEventListener('DOMContentLoaded', () => {
               liElement = document.querySelector('#' + li);
               radioElement = document.querySelector('#' + r);
 
+
+              if (radioElement.checked) {
+                // code for task 1 goes here
               if (quizItem.a == i) {
                 //change background color of li element here
+                score = score + 1;
                 liElement.style.backgroundColor = 'green';
 
               } else {
                 liElement.style.backgroundColor = 'red'
-              }
-
-
-                if (radioElement.checked) {
-                  // code for task 1 goes here
-                  score = score + 1;
-                }
+              }               
+             } else if(quizItem.a == i) {
+              liElement.style.backgroundColor = 'yellow';
+             }
                 console.log('Score in loop', score);
               }
               document.getElementById('score').innerHTML = "Score: " + score + '/' + quizArray.length;
@@ -134,6 +135,6 @@ window.addEventListener('DOMContentLoaded', () => {
               sec--;
           if (sec == -1) {
           clearInterval(timer);
-          alert(`Time out!! Your score is: ${calculateScore()}`); // once timer reaches 0 it shows the score
+          alert(`Time out!! Your score is: ${calculateScore(this)}`); // once timer reaches 0 it shows the score
         }
       }
