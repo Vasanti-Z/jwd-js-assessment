@@ -69,7 +69,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     <li class="list-group-item"  id="li_${index}_2"><input type="radio" name="radio${index}" id="radio_${index}_2"> ${quizItem.o[2]}</li>
                     <li class="list-group-item"  id="li_${index}_3"><input type="radio" name="radio${index}" id="radio_${index}_3"> ${quizItem.o[3]}</li>
                     </ul>
-                    <div>&nbsp;</div>`;
+                   <div>&nbsp;</div>`;
       quizWrap.innerHTML = quizDisplay;
     });
   };
@@ -99,3 +99,9 @@ window.addEventListener('DOMContentLoaded', () => {
   // call the displayQuiz function
   displayQuiz();
 });
+
+//Reload the page when the reset button is clicked
+const reset = document.getElementById('btnReset');
+reset.addEventListener('click', () => {
+  location.reload();
+})
