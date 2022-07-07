@@ -87,21 +87,38 @@ window.addEventListener('DOMContentLoaded', () => {
 
         if (quizItem.a == i) {
           //change background color of li element here
+          liElement.style.backgroundColor = "rgba(240, 138, 138, 0.29)";
+
         }
 
-        if (radioElement.checked) {
-          // code for task 1 goes here
+          if (radioElement.checked) {
+            // code for task 1 goes here
+            score = score + 1;
+          }
         }
-      }
-    });
-  };
+      });
+        return score();
+    };
+        // //Add an Event listener for the submit button
+        //   submit.addEventListener('click', (e) => {
+        //     e.preventDefault();
+        //     totalScore = calculateScore();
+        //     score.innerHTML = `Total score: ${totalScore}`;
+        //     submit.style.display = 'none';
+        
+        // });
 
-  // call the displayQuiz function
-  displayQuiz();
-});
+          //Reload the page when the reset button is clicked
+          const reset = document.getElementById('btnReset');
+          reset.addEventListener('click', () => {
+          window.location.reload();
+      })
 
-//Reload the page when the reset button is clicked
-const reset = document.getElementById('btnReset');
-reset.addEventListener('click', () => {
-  location.reload();
-})
+        //
+
+
+        // call the displayQuiz function
+      displayQuiz();
+  });
+
+ 
