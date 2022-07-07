@@ -73,6 +73,14 @@ window.addEventListener('DOMContentLoaded', () => {
       quizWrap.innerHTML = quizDisplay;
     });
   };
+        // Add an Event listener for the submit button
+
+        const btn = document.getElementById('btnSubmit');
+        btn.addEventListener('click', function(event){
+        const totalScore = calculateScore(this);
+        console.log('Button Clicked');
+        console.log('Total Score = ' + totalScore);
+      })
 
         // Calculate the score
         const calculateScore = () => {
@@ -87,23 +95,26 @@ window.addEventListener('DOMContentLoaded', () => {
 
               if (quizItem.a == i) {
                 //change background color of li element here
-                liElement.style.backgroundColor = "rgba(240, 138, 138, 0.29)";
+                liElement.style.backgroundColor = 'green';
 
+              } else {
+                liElement.style.backgroundColor = 'red'
               }
+
 
                 if (radioElement.checked) {
                   // code for task 1 goes here
-                  
+                  score = score + 1;
                 }
+                console.log('Score in loop', score);
               }
+              document.getElementById('score').innerHTML = "Score: " + score + '/' + quizArray.length;
             });
               
-          };
-             
+            return score;
+          };           
 
-            
-
-              // call the displayQuiz function
+            // call the displayQuiz function
             displayQuiz();
         });
 
@@ -114,22 +125,15 @@ window.addEventListener('DOMContentLoaded', () => {
         })
 
           //Add a countdown timer
-          const startingMinutes = 1;
-          let time = startingMinutes * 60;
-          const timer = document.getElementById('time');
+          
+          let sec = 60;
+          let timer = setInterval(myTimer, 1000);
 
-          setInterval(updateCountdown, 1000);
-
-          function updateCountdown() {
-            const minutes = Math.floor(time / 60);
-            let seconds = time % 60;            
-            timer.innerHTML = `${minutes}: ${seconds}`;
-            
-            if(time > 0) {
-              time --;
-            }
-            else if(time === 0) 
-            clearInterval(time);
-            alert("You're out of time!");           
-          }
- 
+          function myTimer() {
+          document.getElementById('time').innerHTML = sec + " sec";
+              sec--;
+          if (sec == -1) {
+          clearInterval(timer);
+          alert(`Time out!! Your score is: ${calculateScore()}`); // once timer reaches 0 it shows the score
+        }
+      }
