@@ -74,51 +74,62 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  // Calculate the score
-  const calculateScore = () => {
-    let score = 0;
-    quizArray.map((quizItem, index) => {
-      for (let i = 0; i < 4; i++) {
-        //highlight the li if it is the correct answer
-        let li = `li_${index}_${i}`;
-        let r = `radio_${index}_${i}`;
-        liElement = document.querySelector('#' + li);
-        radioElement = document.querySelector('#' + r);
+        // Calculate the score
+        const calculateScore = () => {
+          let score = 0;
+          quizArray.map((quizItem, index) => {
+            for (let i = 0; i < 4; i++) {
+              //highlight the li if it is the correct answer
+              let li = `li_${index}_${i}`;
+              let r = `radio_${index}_${i}`;
+              liElement = document.querySelector('#' + li);
+              radioElement = document.querySelector('#' + r);
 
-        if (quizItem.a == i) {
-          //change background color of li element here
-          liElement.style.backgroundColor = "rgba(240, 138, 138, 0.29)";
+              if (quizItem.a == i) {
+                //change background color of li element here
+                liElement.style.backgroundColor = "rgba(240, 138, 138, 0.29)";
 
-        }
+              }
 
-          if (radioElement.checked) {
-            // code for task 1 goes here
-            score = score + 1;
+                if (radioElement.checked) {
+                  // code for task 1 goes here
+                  
+                }
+              }
+            });
+              
+          };
+             
+
+            
+
+              // call the displayQuiz function
+            displayQuiz();
+        });
+
+            //Reload the page when the reset button is clicked
+            const reset = document.getElementById('btnReset');
+            reset.addEventListener('click', () => {
+            window.location.reload();
+        })
+
+          //Add a countdown timer
+          const startingMinutes = 1;
+          let time = startingMinutes * 60;
+          const timer = document.getElementById('time');
+
+          setInterval(updateCountdown, 1000);
+
+          function updateCountdown() {
+            const minutes = Math.floor(time / 60);
+            let seconds = time % 60;            
+            timer.innerHTML = `${minutes}: ${seconds}`;
+            
+            if(time > 0) {
+              time --;
+            }
+            else if(time === 0) 
+            clearInterval(time);
+            alert("You're out of time!");           
           }
-        }
-      });
-        return score();
-    };
-        // //Add an Event listener for the submit button
-        //   submit.addEventListener('click', (e) => {
-        //     e.preventDefault();
-        //     totalScore = calculateScore();
-        //     score.innerHTML = `Total score: ${totalScore}`;
-        //     submit.style.display = 'none';
-        
-        // });
-
-          //Reload the page when the reset button is clicked
-          const reset = document.getElementById('btnReset');
-          reset.addEventListener('click', () => {
-          window.location.reload();
-      })
-
-        //
-
-
-        // call the displayQuiz function
-      displayQuiz();
-  });
-
  
