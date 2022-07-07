@@ -127,14 +127,22 @@ window.addEventListener('DOMContentLoaded', () => {
 
           //Add a countdown timer
           
-          let sec = 60;
-          let timer = setInterval(myTimer, 1000);
+          const startingMinutes = 1;
+          let time = startingMinutes * 60;
+          const timer = document.getElementById('time');
 
-          function myTimer() {
-          document.getElementById('time').innerHTML = sec + " sec";
-              sec--;
-          if (sec == -1) {
-          clearInterval(timer);
-          alert(`Time out!! Your score is: ${calculateScore(this)}`); // once timer reaches 0 it shows the score
-        }
-      }
+          setInterval(updateCountdown, 1000);
+
+          function updateCountdown() {
+            const minutes = Math.floor(time / 60);
+            let seconds = time % 60;            
+            timer.innerHTML = `${minutes}: ${seconds}`;
+            
+            if(time > 0) {
+              time --;
+            }
+            else if(time === 0) 
+            clearInterval(time);
+            alert(`Time out!! Your score is: ${calculateScore(this)}`); 
+          
+          }
