@@ -1,3 +1,4 @@
+
 /* ***************************
   JWD JavaScript Assessment
 
@@ -43,6 +44,16 @@ window.addEventListener('DOMContentLoaded', () => {
       q: 'What is the capital of Australia',
       o: ['Sydney', 'Canberra', 'Melbourne', 'Perth'],
       a: 1,
+    },
+    {
+      q: 'What does HTML stand for?',
+      o: ['Hyper Tag Markup Language', 'Hyper Text Markup Language', 'Hyperlinks Text Mark Language', 'Hyperlinking Text Marking Language'],
+      a: 1,
+    },
+    {
+      q: 'What is the correct tag for a line break?',
+      o: ['brk /', 'line /', 'bk /', 'br /'],
+      a: 3,
     },
   ];
 
