@@ -142,8 +142,11 @@ window.addEventListener('DOMContentLoaded', () => {
             if(time > 0) {
               time --;
             }
-            else if(time === 0) 
+            else(time === 0) 
             //clearInterval(time);
-            alert(`Time out!! Your score is: ${calculateScore(this)}`); 
+            alert(`Time out!! Your score is: ${totalScore}`); 
+            
+        
+        
           
           }
