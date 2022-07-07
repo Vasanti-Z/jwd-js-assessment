@@ -130,6 +130,7 @@ window.addEventListener('DOMContentLoaded', () => {
           const startingMinutes = 1;
           let time = startingMinutes * 60;
           const timer = document.getElementById('time');
+          const calculateScore = document.getElementById('score');
 
           setInterval(updateCountdown, 1000);
 
@@ -142,7 +143,7 @@ window.addEventListener('DOMContentLoaded', () => {
               time --;
             }
             else if(time === 0) 
-            clearInterval(time);
+            //clearInterval(time);
             alert(`Time out!! Your score is: ${calculateScore(this)}`); 
           
           }
